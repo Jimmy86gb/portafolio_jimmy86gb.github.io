@@ -1,0 +1,276 @@
+:root {
+    --bg-color: #0a0a0c;
+    --text-color: #e0e0e0;
+    --accent-color: #ffd764;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+}
+
+/* Header & Hero */
+header {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #1a1a20 0%, #0a0a0c 80%);
+    border-bottom: 1px solid rgba(255, 215, 100, 0.1);
+}
+
+.hero h1 {
+    font-size: 4rem;
+    letter-spacing: 2px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.hero .subtitle {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* Contenedores */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 30px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 215, 100, 0.2);
+    padding-bottom: 10px;
+}
+
+section p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    text-align: justify;
+    color: #bbb;
+}
+
+/* Galería Grid */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.foto-item {
+    background-color: #111;
+    border: 1px solid #222;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.foto-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+}
+
+.foto-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: grayscale(10%);
+    transition: filter 0.5s ease;
+}
+
+.foto-item:hover img {
+    filter: grayscale(0%);
+}
+
+.foto-info {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.foto-info h3 {
+    font-size: 1.4rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.foto-info p {
+    font-size: 0.95rem;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 0.9rem;
+    color: #555;
+    border-top: 1px solid #222;
+    margin-top: 50px;
+}
+
+/* Sección Agradecimientos */
+.agradecimiento-box {
+    max-width: 750px;
+    margin: 40px auto 0 auto;
+    text-align: center;
+    padding: 30px;
+    background-color: var(--card-bg);
+    border: 1px dashed rgba(255, 215, 100, 0.15);
+    border-radius: 4px;
+}
+
+.agradecimiento-texto {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: #e0e0e0;
+    line-height: 1.8;
+    margin-bottom: 0 !important; 
+}
+
+/* Ajuste para que la barra no tape los títulos al hacer clic en el menú */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; 
+}
+
+/* --- BARRA DE NAVEGACIÓN */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(10, 10, 12, 0.6); /* Ligeramente transparente */
+    backdrop-filter: blur(12px); /* Efecto cristal */
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 215, 100, 0.05);
+    z-index: 1000;
+    transition: all 0.4s ease;
+}
+
+/* Estilo cuando el usuario baja por la página */
+.navbar.scrolled {
+    background-color: rgba(10, 10, 12, 0.95);
+    border-bottom: 1px solid rgba(255, 215, 100, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 20px;
+    transition: padding 0.4s ease;
+}
+
+.navbar.scrolled .nav-container {
+    padding: 12px 20px; /* Se hace más delgada al bajar */
+}
+
+.nav-logo {
+    color: var(--accent-color);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+}
+
+.nav-menu a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 6px;
+    transition: color 0.3s ease;
+}
+
+/* Efecto del hilo de luz debajo de las palabras al pasar el mouse */
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-menu a:hover {
+    color: var(--accent-color);
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+/* Ocultar el menú de hamburguesa en computadores */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle .bar {
+    width: 24px;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+/* Adaptación para Pantallas Pequeñas (Celulares) */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: -100%; /* Oculto fuera de la pantalla */
+        flex-direction: column;
+        background-color: rgba(10, 10, 12, 0.98);
+        width: 100%;
+        text-align: center;
+        padding: 30px 0;
+        gap: 25px;
+        transition: left 0.4s ease;
+        border-bottom: 1px solid rgba(255, 215, 100, 0.1);
+    }
+    .nav-menu.active {
+        left: 0; /* Aparece al presionar el menú */
+    }
+}
